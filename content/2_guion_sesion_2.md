@@ -132,7 +132,11 @@ To code this application, please take a look into how GPIO works in Linux throug
 > Code an application that takes the value of the switches through the GPIOs and puts it directly into the LEDs above the switches in the Genesys 2 board.
 
 > [!abstract] Exercise 2  
-> Code an application that takes the value of the switches of one Genesys 2 board, sends it to other Genesys 2 board through ethernet and turns the LEDs of said board on. Use pthreads to create one thread that reads the switches and sends it to other board and another one that listens in a TCP socket for any message to turn on its own LEDs
+> Code an application that, after flipping one switch, makes the Knight Rider lights, that is, that the LEDs are being turned on and off in a sequence first from left to right and then from right to left with an interval of 1 second.
+
+> [!abstract] Exercise 3
+> Code an application that opens a TCP socket in an arbitrary port (port 1511 for instance) and listens to messages from the computer. In the computer, open Hercules, open a TCP socket and send a number from 0 to 7. Depending on the number being sent, the corresponding LED will be toggled (if it is off, then it turns on and viceversa). 
+
 ## Debugging applications in Vitis
 Besides just running your application, you can also debug it step by step.  
 This is done in exactly the same way as when running normally your application, but instead of clicking on *Run*, click on *Debug* and the debugging interface should appear, breaking at the start of the `main()` function.
@@ -142,7 +146,8 @@ This is done in exactly the same way as when running normally your application, 
 
 > [!warning]  
 > In case your application is not entering debug mode, make sure to disable any optimization flag (-O0) and enable the debug information flag (-g3).  
-> ![alt text](img/Vitis_Debug.png)
+
+![alt text](img/Vitis_Debug.png)
 
 ## EXTRA: adding your software to a production image
 If you have reached this section before the session ended, congratulations! This last section is dedicated to including your source code that you made on Vitis in the previous section inside the Petalinux image, so that it is readily available to anyone that flashes your OS image (the .mcs file) without having to transfer the application afterwards through Ethernet like we did.
