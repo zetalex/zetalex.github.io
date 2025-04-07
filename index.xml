@@ -6,6 +6,12 @@
       <description>Last 10 notes on Firmware Development on OS</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>SESSION 1: MICROBLAZE PLATFORM FOR PETALINUX</title>
+    <link>https://quartz.jzhao.xyz/1_guion_sesion_1</link>
+    <guid>https://quartz.jzhao.xyz/1_guion_sesion_1</guid>
+    <description>SESSION 1: MICROBLAZE PLATFORM FOR PETALINUX In this first session we are learning on how to generate from zero (to hero) a Petalinux system using the AMD Software for FPGA development.</description>
+    <pubDate>Mon, 07 Apr 2025 10:09:47 GMT</pubDate>
+  </item><item>
     <title>SESSION 2: SOFTWARE COMPONENTS OF PETALINUX</title>
     <link>https://quartz.jzhao.xyz/2_guion_sesion_2</link>
     <guid>https://quartz.jzhao.xyz/2_guion_sesion_2</guid>
@@ -17,12 +23,6 @@
     <guid>https://quartz.jzhao.xyz/3_sesion_2_vitis_unified</guid>
     <description>Coding applications in Vitis Unified AMD provides an Integrated Development Environment (IDE) for their FPGA solutions, where all the tools needed for building and debugging software are included.</description>
     <pubDate>Fri, 28 Mar 2025 16:16:23 GMT</pubDate>
-  </item><item>
-    <title>SESSION 1: MICROBLAZE PLATFORM FOR PETALINUX</title>
-    <link>https://quartz.jzhao.xyz/1_guion_sesion_1</link>
-    <guid>https://quartz.jzhao.xyz/1_guion_sesion_1</guid>
-    <description>SESSION 1: MICROBLAZE PLATFORM FOR PETALINUX In this first session we are learning on how to generate from zero (to hero) a Petalinux system using the AMD Software for FPGA development.</description>
-    <pubDate>Fri, 28 Mar 2025 15:51:21 GMT</pubDate>
   </item><item>
     <title>Home</title>
     <link>https://quartz.jzhao.xyz/</link>
