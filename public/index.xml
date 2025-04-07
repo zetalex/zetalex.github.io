@@ -6,6 +6,12 @@
       <description>Last 10 notes on Firmware Development on OS</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
+    <title>SESSION 2: SOFTWARE COMPONENTS OF PETALINUX</title>
+    <link>https://quartz.jzhao.xyz/2_guion_sesion_2</link>
+    <guid>https://quartz.jzhao.xyz/2_guion_sesion_2</guid>
+    <description>SESSION 2: SOFTWARE COMPONENTS OF PETALINUX In this session we are learning on how to take advantage of the system we have built with our own hands in the previous session.</description>
+    <pubDate>Tue, 01 Apr 2025 09:08:52 GMT</pubDate>
+  </item><item>
     <title>EXTRA: Coding applications in Vitis Unified</title>
     <link>https://quartz.jzhao.xyz/3_sesion_2_vitis_unified</link>
     <guid>https://quartz.jzhao.xyz/3_sesion_2_vitis_unified</guid>
@@ -16,12 +22,6 @@
     <link>https://quartz.jzhao.xyz/1_guion_sesion_1</link>
     <guid>https://quartz.jzhao.xyz/1_guion_sesion_1</guid>
     <description>SESSION 1: MICROBLAZE PLATFORM FOR PETALINUX In this first session we are learning on how to generate from zero (to hero) a Petalinux system using the AMD Software for FPGA development.</description>
-    <pubDate>Fri, 28 Mar 2025 15:51:21 GMT</pubDate>
-  </item><item>
-    <title>SESSION 2: SOFTWARE COMPONENTS OF PETALINUX</title>
-    <link>https://quartz.jzhao.xyz/2_guion_sesion_2</link>
-    <guid>https://quartz.jzhao.xyz/2_guion_sesion_2</guid>
-    <description>SESSION 2: SOFTWARE COMPONENTS OF PETALINUX In this session we are learning on how to take advantage of the system we have built with our own hands in the previous session.</description>
     <pubDate>Fri, 28 Mar 2025 15:51:21 GMT</pubDate>
   </item><item>
     <title>Home</title>

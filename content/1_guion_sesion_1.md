@@ -51,7 +51,12 @@ The project is almost completed, only one IP block is left: The QSPI controller.
    - AXI_LITE -> M02_AXI of AXI Interconnect
    - ext_spi_clk -> ui_clk from MIG 7 Series
    - s_axi_aclk -> ui_clk from MIG 7 Series
-   - s_axi_aresetn -> peripheral_aresetn from rst_mig_7series_0_100M 
+   - s_axi_aresetn -> peripheral_aresetn from rst_mig_7series_0_100M
+   - ip2intc_irpt -> concat block that then goes to the AXI Interrupt Controller
+   - SPI_0 -> Output port called SPI_0_0.
+
+> [!note] Output port to the SPI Flash
+> In case the SPI_0_0 output port is not in the design or was erased by accident, you can create it again by right clicking on the SPI_0 interface of the AXI QSPI Controller API and click on *Make External* 
 
 ### Analyze Microblaze processor and memory map
 
@@ -91,23 +96,26 @@ set_property BITSTREAM.GENERAL.COMPRESS TRUE [current_design]
 
 ### Select bootup method
 
-11. Run Synthesis of the design.
-12. Tools -> Edit Device Properties -> Configuration modes -> Master SPIx4.
-   ![alt text](img/BootupMehtod.png)
+11. Run Synthesis of the design by clicking the corresponding button in the Flow Navigator (left part of the screen).
+12. After Synthesis has finished, click on the *Open Synthesized Design* button just below the *Run Synthesis* button.
+13. In the option bar on the top of Vivado, click on Tools -> Edit Device Properties -> Configuration modes -> Master SPIx4.
+> [!warning] If Edit Device Properties does not appear!
+> It is very important that you Open the Synthesized design before, else, the option will not appear!  
 
+![alt text](img/BootupMehtod.png)
 ### Generate bitstream
 
-13. Click on Generate Bitstream to go through the whole build process.
-14. Open Implemented Design.
-15. Click on *Report Utilization* and check the utilization report to see which FPGA resources were used.
-16. Attach a screenshot of the Summary section of the Utilization Report.
+14.  Click on Generate Bitstream to go through the whole build process.
+15.  Open Implemented Design.
+16.  Click on *Report Utilization* and check the utilization report to see which FPGA resources were used.
+17.  Attach a screenshot of the Summary section of the Utilization Report.
 
 ### Generate XSA file
 
-17. Go to File -> Export -> Export Hardware.
-18. Check *Include Bitstream*.
-19. Select where you want to save the XSA file.
-20. Click Next several times and Finish.
+18. Go to File -> Export -> Export Hardware.
+19. Check *Include Bitstream*.
+20. Select where you want to save the XSA file.
+21. Click Next several times and Finish.
 
 > [!question] Question 7  
 > What does this file include?  
