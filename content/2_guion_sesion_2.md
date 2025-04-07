@@ -12,8 +12,9 @@ Also, if time is on our side and the Fortune Goddess smiles upon us, we can also
 
 > [!danger] Deliverables  
 > At the end of this session you will have to deliver three things:  
-> - The source code of the GPIO application  
-> - The .elf file, ready to be executed in the Genesys 2  
+> - The source code of the three exercises proposed in this session.  
+> - The .elf files, ready to be executed in the Genesys 2
+> - Docx document with the questions answered during this session  
 
 ## Patching the bootloader
 Before entering into coding a new application for ourselves, we will enter into the world of patching, that is, picking some code and changing it to our liking to add new features or fix nasty bugs.
@@ -43,6 +44,12 @@ We are going to patch the bootloader of Microblaze, defined as the first piece o
    petalinux-devtool finish fs-boot <absolute route to the project>/project-spec/meta-user
    ```
 8. Now, inside `project-spec/meta-user/recipes-bsp/fs-boot`, there should be a `.patch` file for each commit you made. Find in the following link an example of a [patch file](https://github.com/Xilinx/embeddedsw/commit/08ebf27b381f3f21a9e961363d3a9505e3d49a21.patch).
+
+> [!question] Question 1  
+> What does the different lines in .patch file mean?
+> - Header of the file
+> - List of the different files being modified
+> - Plus and minus marks on each of the lines of the file.
 
 ## Coding applications in Vitis
 AMD provides an Integrated Development Environment (IDE) for their FPGA solutions, where all the tools needed for building and debugging software are included. This software is called Vitis.
@@ -86,6 +93,9 @@ To code this application, please take a look into how GPIO works in Linux throug
 11. Go to the folder where you unzipped the SDK.zip file and select `<sdk-directory>/sysroots/microblazeel-v11.0-bs-cmp-re-mh-div-xilinx-linux`.  
     ![alt text](img/Vitis_Classic_6.png)
 
+> [!question] Question 2  
+> What does the SDK.zip file include? Explain what is there in each of the two folders of sysroots.
+
 12. Build the platform project by clicking on the *hammer* icon.  
     ![alt text](img/Build_icon.png)
 
@@ -109,21 +119,20 @@ To code this application, please take a look into how GPIO works in Linux throug
 20. Create a new configuration of type TCF (Single Application Debug).  
     ![alt text](img/Vitis_Classic_11.png)
 
-> [!info] About TCF agent  
-> The TCF agent is a software included in the Petalinux distribution by default which acts as a bridge between the PC and the board. This allows transferring, running, and debugging applications through Ethernet, removing the need for connecting a JTAG cable.  
-> For more information about the TCF agent, go to [AMD Docs](https://docs.amd.com/r/en-US/ug1144-petalinux-tools-reference-guide/Debugging-Applications-with-TCF-Agent).
+> [!question] Question 3  
+> What does the TCF acronym stands for? What is it useful for?
 
-21. In the Main tab:  
+21.  In the Main tab:  
     - Add a new Agent with the IP address of the Genesys 2 board (40.0.0.2).  
     - Click on Test Connection and ensure that it successfully establishes connection.  
       ![alt text](img/Vitis_Classic_12.png)
 
-22. In the Application tab:  
+22.  In the Application tab:  
     - Change the working directory to `/home/petalinux`.  
     - Change the remote directory to `/home/petalinux/<name-of-the-.elf>`.
 
-23. Click Apply and then Run.
-24. The Output terminal of the application should automatically open below and display the *Hello World*.
+23.  Click Apply and then Run.
+24.  The Output terminal of the application should automatically open below and display the *Hello World*.
 
 > [!tip] How does the application work?  
 > The message *Hello World* is printed by the application by the board to stdout using `printf`, then the TCF agent connects stdout of the application to the PC, so the message is displayed on the PC.
@@ -147,8 +156,9 @@ This is done in exactly the same way as when running normally your application, 
 > [!warning]  
 > In case your application is not entering debug mode, make sure to disable any optimization flag (-O0) and enable the debug information flag (-g3).  
 
-![alt text](img/Vitis_Debug.png)
 
+> [!question] Question 4  
+> Which window in the Vitis layout makes you able to watch expressions or variables while running your code?
 ## EXTRA: adding your software to a production image
 If you have reached this section before the session ended, congratulations! This last section is dedicated to including your source code that you made on Vitis in the previous section inside the Petalinux image, so that it is readily available to anyone that flashes your OS image (the .mcs file) without having to transfer the application afterwards through Ethernet like we did.
 
@@ -160,6 +170,10 @@ Petalinux Tools is Yocto-based, meaning that it works through recipes. To add a 
    ```
 2. The new application source code should be created in `project-spec/meta-user/recipes-apps/my-gpio-app`. Inside this folder, there should be a `.bb` file and a folder called `files`. Open the `files` folder.
 3. Copy all your source code files inside the `files` folder, erasing all the `.c` and `.h` files that were there, MAKING SURE THAT YOU LEAVE THE MAKEFILE.
+
+> [!question] Question 5  
+> Open the Makefile file, what does the *CC* variable stand for? How can we get its value?
+
 4. Open the aforementioned `.bb` file. This file contains a list of all the files that will be used to build your application in the form of an environment variable called `SRC_URI`.
 5. You need to point all the files you included in the `SRC_URI` files using the URI format that is usually used in web browsers, so `file://<file-name>`. These files are taken with respect to the route of the `files` folder, so if the files are already in the `files` folder and not in any subdirectory, you just have to specify the file name.
 6. After that, we can make a quick test to see if our application is building correctly. This can be done by using the `petalinux-build` command with a `-c` parameter which indicates that we only want to build a specific component of our system. The name that you put in the `-c` is the same as the one you used to create the application in step 1.
